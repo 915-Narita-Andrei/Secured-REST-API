@@ -121,6 +121,8 @@ You should declare a configuration class where you should override some beans:
 ```
 We want to encode the password when storing them, and in this case we will use a `BCryptPasswordEncoder`.
 
+---
+
 ```java
     @Bean
     public org.springframework.security.core.userdetails.UserDetailsService userDetailsService() {
@@ -132,6 +134,8 @@ By default spring will use the UserDetailsService inside its security configurat
 and in our case we want to override the `loadByUsername` method to return our user stored in our repository.
 The repository used there can be a repository created by yourself where you can define 
 how to store the user data (in a db, in memory, etc.)
+
+---
 
 ```java
     @Bean
