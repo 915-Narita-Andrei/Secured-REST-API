@@ -23,8 +23,8 @@ public class SecurityConfiguration {
         return http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/login", "/register").permitAll()
-                        .anyRequest().authenticated())
+                        .requestMatchers("/login", "/register").permitAll() // Public endpoints
+                        .anyRequest().authenticated())  // All other endpoints should be secured
                 .sessionManagement(sm -> sm
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider)
